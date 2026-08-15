@@ -1,0 +1,150 @@
+@import "tailwindcss";
+
+@theme {
+  /* Official palette — Section 11 */
+  --color-bone: #fbf8f1;
+  --color-cream: #efeadd;
+  --color-white: #ffffff;
+
+  --color-forest: #2c342a;
+  --color-stone: #8c8676;
+
+  --color-sage: #667056;
+  --color-gold: #a98244;
+
+  /* Semantic aliases */
+  --color-ink: #2c342a;
+  --color-ink-soft: #8c8676;
+  --color-ink-muted: #8c8676;
+  --color-panel: #efeadd;
+
+  --color-gold-deep: #8f6b34;
+  --color-sage-light: #eef1eb;
+
+  /* Legacy names → brand colors */
+  --color-ivory: #fbf8f1;
+  --color-linen: #efeadd;
+  --color-blush: #efeadd;
+  --color-rose: #e3ddd0;
+  --color-void: #2c342a;
+  --color-burgundy: #667056;
+  --color-burgundy-bright: #a98244;
+  --color-plum: #2c342a;
+  --color-mauve: #667056;
+  --color-mauve-light: #8a9478;
+
+  /* Inner Mirror Circle — separate palette (unchanged) */
+  --color-circle-ivory: #f5efe6;
+  --color-circle-plum: #6d3b47;
+  --color-circle-mauve: #c4847a;
+  --color-circle-gold: #c9a84c;
+
+  --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
+  --font-serif: "Cormorant Garamond", "Instrument Serif", ui-serif, serif;
+  --font-sans: "Inter", ui-sans-serif, sans-serif;
+  --font-circle-script: "Great Vibes", cursive;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+body {
+  background: var(--color-bone);
+  color: var(--color-forest);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-sage);
+  color: var(--color-bone);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.book-prose-body:first-of-type::first-letter {
+  float: left;
+  margin: 0.08em 0.12em 0 0;
+  font-size: 3.4rem;
+  line-height: 0.82;
+  font-weight: 400;
+  color: var(--color-forest);
+}
+
+.circle-theme {
+  background: var(--color-circle-ivory);
+  color: var(--color-circle-plum);
+}
+
+.circle-theme ::selection {
+  background: var(--color-circle-mauve);
+  color: var(--color-circle-ivory);
+}
+
+.cal-booking-shell {
+  scrollbar-gutter: stable;
+}
+
+.cal-booking-embed,
+.cal-booking-embed > div {
+  width: 100%;
+  min-width: 0;
+}
+
+.cal-booking-embed iframe {
+  width: 100% !important;
+  min-height: 420px;
+}
