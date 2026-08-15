@@ -3,12 +3,11 @@ import { Link } from "react-router-dom";
 import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import { Container } from "./ui";
 import { Logo } from "./Logo";
-import { handleAnchorClick } from "../lib/scroll";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#coaching", label: "Coaching" },
-  { href: "#book", label: "Book" },
+  { to: "/#about", label: "About" },
+  { to: "/#coaching", label: "Coaching" },
+  { to: "/#book", label: "Book" },
   { to: "/circle", label: "Circle" },
 ] as const;
 
@@ -36,38 +35,26 @@ export function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-8 text-[13.5px] text-stone md:flex">
-            {links.map((link) =>
-              "to" in link ? (
-                <Link key={link.to} to={link.to} className="transition-colors duration-200 hover:text-forest">
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={handleAnchorClick}
-                  className="transition-colors duration-200 hover:text-forest"
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
+            {links.map((link) => (
+              <Link key={link.to} to={link.to} className="transition-colors duration-200 hover:text-forest">
+                {link.label}
+              </Link>
+            ))}
           </div>
 
-          <a
-            href="#bookings"
-            onClick={handleAnchorClick}
+          <Link
+            to="/#bookings"
             className="hidden rounded-full bg-gold px-5 py-2.5 font-sans text-[13px] font-semibold text-bone transition-transform duration-200 hover:-translate-y-0.5 md:inline-block"
           >
             Book a coaching session
-          </a>
+          </Link>
 
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="flex h-9 w-9 items-center justify-center rounded-full text-forest md:hidden"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-forest md:hidden"
           >
             <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
               <motion.path
@@ -107,40 +94,23 @@ export function Navbar() {
           className="overflow-hidden md:hidden"
         >
           <div className="mt-2 flex flex-col gap-1 rounded-3xl border border-cream bg-bone p-4 shadow-[0_16px_40px_-20px_rgba(44,52,42,0.1)]">
-            {links.map((link) =>
-              "to" in link ? (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  onClick={() => setOpen(false)}
-                  className="rounded-xl px-3 py-2.5 text-sm text-stone transition-colors hover:bg-cream hover:text-forest"
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={(e) => {
-                    handleAnchorClick(e);
-                    setOpen(false);
-                  }}
-                  className="rounded-xl px-3 py-2.5 text-sm text-stone transition-colors hover:bg-cream hover:text-forest"
-                >
-                  {link.label}
-                </a>
-              ),
-            )}
-            <a
-              href="#bookings"
-              onClick={(e) => {
-                handleAnchorClick(e);
-                setOpen(false);
-              }}
+            {links.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                onClick={() => setOpen(false)}
+                className="rounded-xl px-3 py-2.5 text-sm text-stone transition-colors hover:bg-cream hover:text-forest"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              to="/#bookings"
+              onClick={() => setOpen(false)}
               className="mt-2 rounded-full bg-gold px-4 py-3 text-center font-sans text-sm font-semibold text-bone"
             >
               Book a coaching session
-            </a>
+            </Link>
           </div>
         </motion.div>
       </Container>

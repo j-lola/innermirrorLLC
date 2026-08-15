@@ -148,3 +148,31 @@ body {
   width: 100% !important;
   min-height: 420px;
 }
+
+.legal-prose ul {
+  list-style: none;
+}
+
+.legal-prose li {
+  position: relative;
+  padding-left: 1.15rem;
+  margin-top: 0.55rem;
+}
+
+.legal-prose li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.72em;
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--color-gold);
+}
+
+@media print {
+  .legal-prose a[href^="mailto:"]::after,
+  .legal-prose a[href^="http"]::after {
+    content: none;
+  }
+}

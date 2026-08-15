@@ -2,9 +2,10 @@ import { useRef, useState } from "react";
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "motion/react";
 import { Container } from "./ui";
 import { Button } from "./Button";
+import { NoticeMark } from "./NoticeMark";
 import { handleAnchorClick } from "../lib/scroll";
 
-const pillars = ["1:1 Coaching", "12-Week Program", "The Inner Mirror Circle", "The Book"];
+const disclaimer = "Coaching is not therapy/medical advice; results vary; seek appropriate professional help when needed.";
 
 export function Hero() {
   const shouldReduceMotion = useReducedMotion();
@@ -80,10 +81,10 @@ export function Hero() {
 
       <div className="relative z-10 mt-20 overflow-hidden border-t border-cream md:mt-24">
         <div className="marquee-track flex w-max items-center gap-12 py-6">
-          {[...pillars, ...pillars].map((p, i) => (
-            <span key={i} className="flex items-center gap-12 font-display text-[13px] uppercase tracking-[0.1em] text-stone">
-              {p}
-              <span className="h-1 w-1 rounded-full bg-gold" aria-hidden="true" />
+          {[disclaimer, disclaimer, disclaimer, disclaimer].map((text, i) => (
+            <span key={i} className="flex items-center gap-3 font-display text-[13px] uppercase tracking-[0.1em] text-stone">
+              <NoticeMark />
+              {text}
             </span>
           ))}
         </div>

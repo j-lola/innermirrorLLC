@@ -9,9 +9,14 @@ import { Book } from "../components/Book";
 import { Circle } from "../components/Circle";
 import { Bookings } from "../components/Bookings";
 import { Footer } from "../components/Footer";
+import { applySeo, SITE_DESCRIPTION, SITE_TITLE } from "../lib/seo";
 
 export function HomePage() {
   const { hash } = useLocation();
+
+  useEffect(() => {
+    applySeo({ title: SITE_TITLE, description: SITE_DESCRIPTION, path: "/" });
+  }, []);
 
   useEffect(() => {
     if (!hash) return;

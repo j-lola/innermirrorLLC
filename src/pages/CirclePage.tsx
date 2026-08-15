@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
+import { useEffect } from "react";
 import { CircleNav } from "../components/circle/CircleNav";
 import { Container } from "../components/ui";
 import { Reveal } from "../components/Reveal";
+import { applySeo } from "../lib/seo";
 
 function CircleEyebrow({ children }: { children: ReactNode }) {
   return (
@@ -13,6 +15,15 @@ function CircleEyebrow({ children }: { children: ReactNode }) {
 }
 
 export function CirclePage() {
+  useEffect(() => {
+    applySeo({
+      title: "The Inner Mirror Circle | Inner Mirror Coaching",
+      description:
+        "A community for women 25–55 to feel seen, supported, and safe enough to grow. Real women, real connection — The Inner Mirror Circle.",
+      path: "/circle",
+    });
+  }, []);
+
   return (
     <div className="circle-theme min-h-screen">
       <CircleNav />
