@@ -11,6 +11,7 @@ export type LegalDoc = {
   title: string;
   description: string;
   updated: string;
+  draft?: boolean;
   sections: LegalSection[];
 };
 
@@ -20,6 +21,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
     title: "Privacy Policy",
     description: "How Inner Mirror Coaching collects, uses, and looks after personal information when you visit the site, book a session, or join the Circle.",
     updated: "August 15, 2026",
+    draft: true,
     sections: [
       {
         id: "who-this-covers",
@@ -142,6 +144,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
     title: "Terms of Service",
     description: "The agreement between you and Inner Mirror Coaching when you use this website, book a session, buy a program, or join the Circle.",
     updated: "August 15, 2026",
+    draft: true,
     sections: [
       {
         id: "agreement",
@@ -268,78 +271,65 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: "disclaimer",
     title: "Disclaimer",
-    description: "Coaching is not therapy or medical advice. Results vary. Seek appropriate professional help when you need it.",
+    description:
+      "Inner Mirror coaching provides coaching services intended to support personal and professional development. The information on this website and in our programs is for general informational and educational purposes only.",
     updated: "August 15, 2026",
     sections: [
       {
-        id: "the-notice",
-        title: "The notice",
-        inShort: "This is the sentence that sits on the homepage, written out in full.",
+        id: "purpose",
+        title: "Purpose",
+        inShort: "This page explains the limits of our coaching, this website, and our programs.",
         paragraphs: [
-          "Coaching is not therapy/medical advice; results vary; seek appropriate professional help when needed.",
-          "Please read this page before you book. It is part of how Inner Mirror Coaching is offered. Placeholder expansions below are for review and should be confirmed with counsel before launch.",
+          "Inner Mirror coaching provides coaching services intended to support personal and professional development. The information on this website and in our programs is for general informational and educational purposes only.",
         ],
       },
       {
-        id: "not-therapy",
-        title: "Not therapy or medical care",
-        inShort: "Dr. Owotomo’s public-health training informs the work. It does not turn coaching into clinical treatment.",
+        id: "not-medical",
+        title: "Not medical or mental health care",
+        inShort: "Coaching is not psychotherapy, counseling, diagnosis, or medical care.",
         paragraphs: [
-          "Inner Mirror provides life coaching. It is educational and supportive. It is not psychotherapy, psychiatry, counseling, medical care, nutrition practice, or legal advice.",
-          "A coaching relationship is not a doctor–patient or therapist–client relationship. Nothing on this website, in a session, in the Circle, or in the book diagnoses, treats, or cures any condition.",
-          "If you are currently in therapy or under medical care, coaching is meant to sit alongside that care — not replace it. Tell your licensed providers about any coaching you begin.",
+          "Coaching (including life coaching and wellness coaching) is not psychotherapy, counseling, mental health treatment, diagnosis, or medical care. We do not provide medical, psychological, or other licensed healthcare services unless explicitly stated in writing. Nothing on this website or in our services is a substitute for professional medical advice, diagnosis, or treatment.",
+          "If you have—or suspect you may have—a medical or mental health condition, or if you are experiencing a crisis, seek help from a qualified healthcare professional and/or emergency services immediately.",
         ],
       },
       {
         id: "results-vary",
-        title: "Results vary",
-        inShort: "People change at different speeds. We will not promise a specific outcome, timeline, or feeling.",
+        title: "No guarantees; results vary",
+        inShort: "Outcomes depend on you. We do not promise any specific result.",
         paragraphs: [
-          "Coaching depends on your participation, circumstances, and timing. Some people feel a shift quickly; others need a longer season. Some decide coaching is not the right tool.",
-          "Testimonials, stories, and program descriptions are examples, not guarantees. Your experience will be your own.",
+          "Your outcomes depend on many factors, including your background, effort, commitment, and circumstances. We make no guarantees regarding any specific results.",
         ],
       },
       {
-        id: "seek-help",
-        title: "When to seek other help",
-        inShort: "If the need is clinical, medical, legal, or urgent, go to the professional who is trained for that need.",
+        id: "assumption-of-risk",
+        title: "Assumption of risk",
+        inShort: "You remain responsible for your decisions, actions, and wellbeing.",
         paragraphs: [
-          "Please seek licensed help — and emergency services when relevant — if you are dealing with thoughts of self-harm, harm to others, abuse, a mental-health crisis, a medical emergency, an eating disorder, substance dependence, or any situation that requires clinical or legal intervention.",
-          "Coaching sessions and this website are not monitored 24 hours a day and are not an emergency service. If you write to help@innermirror.com in a crisis, we may not see it in time.",
+          "You are responsible for your own decisions, actions, and results. By using this website and participating in our services, you acknowledge and accept that you assume full responsibility for your wellbeing and any outcomes that arise from your choices.",
         ],
       },
       {
-        id: "crisis",
-        title: "Crisis support",
-        inShort: "If you are in immediate danger, call local emergency services first.",
+        id: "professional-advice",
+        title: "Professional advice",
+        inShort: "What we discuss is general. It is not a substitute for licensed professional advice.",
         paragraphs: [
-          "In the United States, you can call or text 988 for the Suicide & Crisis Lifeline, or call 911 for emergency services. These resources are independent of Inner Mirror.",
-          "If you are outside the United States, use your local emergency number and crisis services.",
+          "We may discuss topics related to health, stress management, performance, habits, relationships, career, or finances. Any such discussions are general in nature and should not be relied upon as a substitute for advice from appropriately qualified professionals (e.g., physicians, therapists, attorneys, financial advisors).",
         ],
       },
       {
-        id: "website-and-book",
-        title: "Website, Circle, and book",
-        inShort: "What you read here is general. It is not personal advice written for your situation alone.",
+        id: "limitations",
+        title: "Limitations and boundaries",
+        inShort: "If specialized care would serve you better, we may say so. You stay in control of your choices.",
         paragraphs: [
-          "Articles, pages, Circle conversations, and Return To Baseline are for education and reflection. They may not apply to you. We do not warrant that the site is complete, current, or error-free.",
-          "Links to other sites, booking tools, or resources are provided for convenience. Their content and practices are their own.",
-        ],
-      },
-      {
-        id: "no-reliance",
-        title: "No reliance beyond scope",
-        inShort: "Use coaching as one support among others. Do not rely on it as your only care.",
-        paragraphs: [
-          "By using this website or booking a session, you acknowledge the limits described here and in the Terms of Service. You agree that Inner Mirror is not responsible for decisions you make, or for outcomes that follow, except to the extent the law does not allow us to limit that responsibility.",
+          "If at any time it becomes clear that you would benefit from therapy, medical care, or other specialized support, we may recommend that you seek help from a licensed professional. You understand that coaching is a collaborative process and that you remain in control of your decisions.",
         ],
       },
       {
         id: "contact-disclaimer",
-        title: "Questions",
-        inShort: "If anything on this page is unclear, ask before you book.",
+        title: "Contact",
+        inShort: "Questions about this disclaimer can be sent to us directly.",
         paragraphs: [
-          "Email help@innermirror.com. Inner Mirror LLC, Atlanta, Georgia.",
+          "If you have questions about this disclaimer, contact us via the website’s Contact page or at help@innermirror.com.",
         ],
       },
     ],

@@ -77,6 +77,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
             </p>
           </header>
 
+          {doc.draft ? (
           <aside className="mt-8 max-w-160 rounded-[22px] bg-cream px-5 py-4 md:mt-10 md:px-6 md:py-5">
             <p className="flex items-start gap-3 text-[14.5px] leading-relaxed text-forest/80">
               <NoticeMark className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
@@ -89,6 +90,7 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
               </span>
             </p>
           </aside>
+          ) : null}
 
           <div className="mt-12 grid gap-12 lg:mt-16 lg:grid-cols-[minmax(0,14rem)_minmax(0,40rem)] lg:gap-16 xl:grid-cols-[minmax(0,16rem)_minmax(0,40rem)]">
             <nav
