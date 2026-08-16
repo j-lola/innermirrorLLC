@@ -1,9 +1,16 @@
+export type LegalGroup = {
+  heading?: string;
+  paragraphs?: string[];
+  bullets?: string[];
+};
+
 export type LegalSection = {
   id: string;
   title: string;
   inShort: string;
   paragraphs: string[];
   bullets?: string[];
+  groups?: LegalGroup[];
 };
 
 export type LegalDoc = {
@@ -19,122 +26,197 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: "privacy",
     title: "Privacy Policy",
-    description: "How Inner Mirror Coaching collects, uses, and looks after personal information when you visit the site, book a session, or join the Circle.",
-    updated: "August 15, 2026",
-    draft: true,
+    description:
+      "This Privacy Policy explains how Inner Mirror Coaching collects, uses, shares, and protects personal information when you visit our website, contact us, or participate in our coaching services.",
+    updated: "August 16, 2026",
     sections: [
       {
-        id: "who-this-covers",
-        title: "Who this covers",
-        inShort: "This policy applies to anyone who uses the Inner Mirror website, books coaching, or joins the Circle.",
+        id: "about-this-policy",
+        title: "About this policy",
+        inShort: "This policy covers the website, contact with us, and our coaching services. If you do not agree, please do not use the Services.",
         paragraphs: [
-          "This Privacy Policy describes how Inner Mirror LLC (“Inner Mirror,” “we,” “us”) handles personal information in connection with theinnermirrorcoaching.com, related booking pages, and The Inner Mirror Circle.",
-          "Placeholder names, processors, and retention periods below are for design and review. They should be confirmed with counsel and our actual vendors before launch.",
+          "This Privacy Policy explains how Inner Mirror Coaching collects, uses, shares, and protects personal information when you visit our website, contact us, or participate in our coaching services (including life coaching and wellness coaching) and related offerings (collectively, the “Services”).",
+          "If you do not agree with this Privacy Policy, please do not use the Services.",
         ],
       },
       {
-        id: "what-we-collect",
-        title: "What we collect",
-        inShort: "We keep what we need to know you, book you, and run the work — not a profile of your private life.",
-        paragraphs: [
-          "The information we receive depends on how you use Inner Mirror. Typical categories include:",
+        id: "information-we-collect",
+        title: "Information we collect",
+        inShort: "We collect what you give us, and some technical information collected automatically when you use the website.",
+        paragraphs: ["We may collect the following categories of information:"],
+        groups: [
+          {
+            heading: "Information you provide",
+            bullets: [
+              "Contact information (such as your name, email address, phone number) when you fill out a form, request information, or contact us.",
+              "Inquiry details you choose to include in messages (for example, what you’re looking for support with).",
+              "Scheduling and intake information you submit when booking or applying for services.",
+              "Payment information if you purchase services (note: payments are typically processed by third-party payment processors; we do not store full payment card numbers).",
+            ],
+          },
+          {
+            heading: "Information collected automatically",
+            paragraphs: ["When you use the website, we (or service providers) may automatically collect:"],
+            bullets: [
+              "Device and browser information",
+              "IP address and approximate location",
+              "Pages viewed, links clicked, and referring/exit pages",
+              "Cookies or similar technologies (see “Cookies and analytics” below)",
+            ],
+          },
         ],
+      },
+      {
+        id: "session-records",
+        title: "Notes and coaching session records",
+        inShort: "We aim to collect as little as we need. Live session notes are not kept by default.",
+        paragraphs: ["We respect your privacy and aim to minimize data collection."],
         bullets: [
-          "Identity and contact details: name, email address, and any phone number you choose to share.",
-          "Booking details: session type, date, time zone, and notes you add when you schedule.",
-          "Payment details: handled by our payment and scheduling providers. We do not store full card numbers on this site.",
-          "Communications: emails, form messages, and information you share in sessions or Circle spaces.",
-          "Technical data: browser type, device, approximate location derived from IP, and pages visited.",
+          "We do not keep written notes of live coaching conversations as a default practice.",
+          "We may keep minimal administrative records (for example: your name, contact details, scheduling information, service package purchased, invoices/receipts, and high-level goals you choose to provide in writing).",
+          "If we ever want to keep written notes, summaries, or recordings for a specific purpose (for example, with your request or to support continuity of care), we will ask for your explicit consent first and you can decline.",
+        ],
+        groups: [
+          {
+            paragraphs: [
+              "Because our Services are coaching and not medical or mental health treatment, information you share is generally not subject to healthcare privacy laws like HIPAA. We still treat your information with care and use it only as described in this Privacy Policy.",
+            ],
+          },
         ],
       },
       {
         id: "how-we-use-it",
         title: "How we use information",
-        inShort: "We use your information to deliver coaching, run the Circle, and keep the site working — not to sell a list of names.",
+        inShort: "We use your information to run the Services, communicate with you, and keep required records.",
         paragraphs: ["We use personal information to:"],
         bullets: [
-          "Schedule, host, and follow up on discovery calls and coaching sessions.",
-          "Process payments, send receipts, and handle cancellations or reschedules.",
-          "Operate The Inner Mirror Circle, including membership communications.",
-          "Respond to questions sent to help@innermirror.com.",
-          "Improve the website, diagnose issues, and keep it secure.",
-          "Meet legal, tax, and record-keeping duties.",
+          "Provide, operate, and improve the Services",
+          "Respond to inquiries and communicate with you",
+          "Schedule sessions and manage client relationships",
+          "Process payments and send receipts/invoices",
+          "Maintain business records and comply with legal obligations",
+          "Protect against fraud, misuse, or security incidents",
         ],
       },
       {
-        id: "booking-and-payments",
-        title: "Booking and payments",
-        inShort: "Scheduling runs through Cal.com. Payment details stay with the processor, not in a spreadsheet on this site.",
+        id: "how-we-share-it",
+        title: "How we share information",
+        inShort: "We do not sell your personal information. We share it only as needed to operate, comply, or transfer the business.",
         paragraphs: [
-          "Session booking is currently facilitated through Cal.com. When you choose a time, you leave Inner Mirror’s pages and interact with that provider’s forms and policies as well as ours.",
-          "If a paid session or program is processed online, card details are collected by the payment processor connected to that booking flow. Inner Mirror receives confirmation that a payment succeeded, not your full card number.",
+          "We do not sell your personal information.",
+          "We may share personal information with:",
+        ],
+        bullets: [
+          "Service providers that help us run the business (e.g., website hosting, scheduling tools, email services, payment processors, analytics providers), only as needed for them to perform services for us.",
+          "Legal and compliance: if required by law, subpoena, court order, or to protect our rights and safety.",
+          "Business transfers: if we are involved in a merger, acquisition, or sale of assets, information may be transferred as part of that transaction.",
         ],
       },
       {
         id: "cookies",
-        title: "Cookies and similar tools",
-        inShort: "The site needs a few technical cookies to function. Anything extra will be named here before it ships.",
-        paragraphs: [
-          "We use strictly necessary cookies and similar storage so the site can remember basic preferences and keep booking embeds working.",
-          "If we later add analytics or marketing pixels, this section will name the tools, what they measure, and how to opt out. Until then, treat any unnamed tracker as out of scope for this draft.",
-        ],
-      },
-      {
-        id: "who-we-share-with",
-        title: "Who we share with",
-        inShort: "We share information with the services that help us operate — not with advertisers buying an audience.",
-        paragraphs: [
-          "We do not sell personal information. We share it only with people and companies who need it to provide Inner Mirror’s services, including:",
-        ],
+        title: "Cookies and analytics",
+        inShort: "Cookies may remember preferences, measure usage, and help us improve the site. You can control them in your browser.",
+        paragraphs: ["We may use cookies and similar technologies to:"],
         bullets: [
-          "Scheduling, video, and payment providers.",
-          "Email and hosting vendors who process data on our instructions.",
-          "Professional advisers (for example, accountants or counsel) when required.",
-          "Authorities if the law requires disclosure, or to protect someone’s safety.",
+          "Remember preferences",
+          "Understand website performance and usage",
+          "Improve the website and marketing",
+        ],
+        groups: [
+          {
+            paragraphs: [
+              "You can control cookies through your browser settings. Some site features may not function properly if cookies are disabled.",
+            ],
+          },
         ],
       },
       {
-        id: "how-long",
-        title: "How long we keep it",
-        inShort: "We keep records only as long as the work, the law, or a genuine follow-up still needs them.",
+        id: "data-retention",
+        title: "Data retention",
+        inShort: "We keep information only as long as we reasonably need it for the Services, records, and the law.",
+        paragraphs: ["We keep personal information only as long as reasonably necessary to:"],
+        bullets: [
+          "Provide the Services",
+          "Maintain business and financial records",
+          "Comply with legal obligations",
+          "Resolve disputes and enforce agreements",
+        ],
+      },
+      {
+        id: "security",
+        title: "Security",
+        inShort: "We take reasonable steps to protect personal information. No system is completely secure.",
         paragraphs: [
-          "Booking and billing records are typically kept for up to seven years to meet tax and accounting needs (placeholder period — confirm with counsel).",
-          "Session notes and Circle membership records are kept for as long as the coaching relationship continues, then deleted or archived according to our retention practice once they are no longer needed.",
-          "You may ask us to delete information we do not need to keep. Some records cannot be erased immediately where the law requires us to retain them.",
+          "We use reasonable administrative, technical, and physical safeguards designed to protect personal information. However, no method of transmission or storage is 100% secure.",
         ],
       },
       {
         id: "your-rights",
         title: "Your choices and rights",
-        inShort: "You can ask what we hold, ask us to correct it, or ask us to delete what we no longer need.",
-        paragraphs: [
-          "Depending on where you live, you may have the right to access, correct, delete, or receive a copy of personal information, or to object to certain uses.",
-          "To make a request, email help@innermirror.com with enough detail for us to find your records. We may need to verify that the request comes from you.",
-          "You may unsubscribe from non-essential email at any time using the link in those messages, or by writing to us.",
+        inShort: "You may ask to see, correct, or delete your information, and you can opt out of marketing email.",
+        paragraphs: ["Depending on where you live, you may have rights such as:"],
+        bullets: [
+          "Request access to the personal information we hold about you",
+          "Request correction or deletion",
+          "Opt out of marketing emails (you can also use the unsubscribe link if provided)",
+        ],
+        groups: [
+          {
+            paragraphs: ["To make a request, contact us using the information below."],
+          },
         ],
       },
       {
         id: "children",
-        title: "Children",
-        inShort: "Inner Mirror is for adults. We do not knowingly collect information from anyone under 18.",
+        title: "Children’s privacy",
+        inShort: "The Services are not directed to children. Coaching a minor happens only with a parent or guardian’s written consent.",
         paragraphs: [
-          "Coaching, the Circle, and this website are intended for people 18 and older. If we learn that we have collected personal information from a child, we will delete it.",
+          "The Services are not directed to children under 13 (or under 16 in certain jurisdictions), and we do not knowingly collect personal information from children.",
+        ],
+        groups: [
+          {
+            paragraphs: [
+              "If we agree in writing to provide coaching services to a minor with a parent or legal guardian’s consent, we may collect limited personal information about the minor and the parent/guardian as needed to:",
+            ],
+            bullets: [
+              "verify consent and authority,",
+              "schedule and provide the requested services,",
+              "maintain appropriate administrative records, and",
+              "communicate with the parent/guardian about logistics and billing.",
+            ],
+          },
+          {
+            paragraphs: ["In those situations:"],
+            bullets: [
+              "We will request a parent/legal guardian to provide the minor’s information, and we will not request that a minor submit personal information directly through the website unless we have confirmed appropriate consent.",
+              "We will limit collection to what is reasonably necessary for the coaching engagement.",
+              "The parent/legal guardian may request access to, correction of, or deletion of the minor’s information, subject to our legal and recordkeeping obligations.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "third-party-links",
+        title: "Third-party links",
+        inShort: "Links to other sites are not covered by this policy.",
+        paragraphs: [
+          "The website may link to third-party sites. We are not responsible for the privacy practices of those sites.",
         ],
       },
       {
         id: "changes",
-        title: "Changes to this policy",
-        inShort: "If the way we handle information changes, we will update this page and the date at the top.",
+        title: "Changes to this Privacy Policy",
+        inShort: "We may update this page. The “Last updated” date will change when we do.",
         paragraphs: [
-          "We may revise this Privacy Policy from time to time. The “Last updated” date shows the current version. Material changes will be posted here, and we may also notify you by email when we have an address for you.",
+          "We may update this Privacy Policy from time to time. The updated version will be posted on this page with a new “Last updated” date.",
         ],
       },
       {
         id: "contact",
-        title: "How to reach us",
-        inShort: "Privacy questions go to the same inbox as everything else: help@innermirror.com.",
+        title: "Contact us",
+        inShort: "Privacy questions can be sent to us directly.",
         paragraphs: [
-          "Inner Mirror LLC, Atlanta, Georgia. Email help@innermirror.com. We aim to reply within a few business days.",
+          "Questions about this Privacy Policy? Contact us via the website’s Contact page or at help@innermirror.com.",
         ],
       },
     ],
@@ -142,128 +224,159 @@ export const LEGAL_DOCS: LegalDoc[] = [
   {
     slug: "terms",
     title: "Terms of Service",
-    description: "The agreement between you and Inner Mirror Coaching when you use this website, book a session, buy a program, or join the Circle.",
-    updated: "August 15, 2026",
-    draft: true,
+    description:
+      "These Terms of Service govern your access to and use of The Inner Mirror LLC’s website and the services. By accessing or using the Services, you agree to these Terms.",
+    updated: "August 16, 2026",
     sections: [
       {
-        id: "agreement",
-        title: "The agreement",
-        inShort: "Using the site or booking a session means you accept these terms. If you do not, please do not use the services.",
+        id: "about-these-terms",
+        title: "About these Terms",
+        inShort: "Using the website or the Services means you agree to these Terms. If you do not, please do not use them.",
         paragraphs: [
-          "These Terms of Service (“Terms”) are a contract between you and Inner Mirror LLC, operating Inner Mirror Coaching from Atlanta, Georgia.",
-          "They cover the website, discovery calls, 1:1 coaching, the twelve-week program, The Inner Mirror Circle, and related materials including the book where sold or distributed by us.",
-          "This draft is placeholder language for layout and review. It is not in force until replaced with a counsel-reviewed version.",
+          "These Terms of Service govern your access to and use of The Inner Mirror LLC’s website and the services. By accessing or using the Services, you agree to these Terms.",
+          "If you do not agree to these Terms, do not use the Services.",
+        ],
+      },
+      {
+        id: "who-we-are",
+        title: "Who we are",
+        inShort: "The Services are provided by The Inner Mirror LLC.",
+        paragraphs: ["The Services are provided by The Inner Mirror LLC."],
+      },
+      {
+        id: "services-disclaimer",
+        title: "Services; coaching disclaimer",
+        inShort: "We offer coaching and educational support. It is not medical, mental health, or licensed professional care.",
+        paragraphs: [
+          "We provide coaching services, including life coaching and wellness coaching, as well as education and wellness-related information intended to support personal and professional development.",
+          "Coaching is not medical, mental health, or licensed professional care. The Services are not a substitute for therapy, counseling, diagnosis, or treatment. If you are in crisis or may be experiencing a medical or mental health emergency, contact emergency services and/or a qualified professional immediately.",
         ],
       },
       {
         id: "eligibility",
-        title: "Who may use these services",
-        inShort: "You need to be 18 or older, and able to enter a contract, to book coaching or join the Circle.",
+        title: "Eligibility",
+        inShort: "You must be 18 or older, unless we agree in writing to work with a minor with appropriate permissions.",
         paragraphs: [
-          "You confirm that you are at least 18 years old and that the information you give us is accurate.",
-          "The Inner Mirror Circle is described as a community for women. Eligibility for a particular offering may be stated on that offering’s page. We may decline or end a booking if it is not a fit, including for safety or scope reasons.",
+          "You must be at least 18 years old (or the age of majority in your jurisdiction) to use the Services, unless we explicitly agree in writing to work with a minor with appropriate permissions.",
         ],
       },
       {
-        id: "coaching-services",
-        title: "Coaching services",
-        inShort: "Coaching is a partnership for reflection and change. It is not therapy, medical care, or a guarantee of a particular outcome.",
-        paragraphs: [
-          "Inner Mirror provides life coaching, including wellness, burnout recovery, and related personal development work. Sessions are typically held by video.",
-          "You remain responsible for your decisions and for seeking licensed clinical, medical, or legal help when that is what the situation requires. See the Disclaimer for the full notice.",
-          "Discovery calls are free and without obligation. Paid 1:1 sessions and the twelve-week program are described on the coaching pages; the details on those pages at the time you book form part of this agreement.",
+        id: "user-responsibilities",
+        title: "User responsibilities",
+        inShort: "Give accurate information, use the Services lawfully, and own your decisions.",
+        paragraphs: ["You agree to:"],
+        bullets: [
+          "Provide accurate information when you contact us, apply, or purchase services.",
+          "Use the Services lawfully and respectfully.",
+          "Take full responsibility for your decisions, actions, and results.",
         ],
       },
       {
-        id: "circle",
-        title: "The Inner Mirror Circle",
-        inShort: "The Circle is a community space with its own rhythm. Membership is not a substitute for 1:1 coaching or clinical care.",
+        id: "scheduling",
+        title: "Scheduling, cancellations, and no-shows",
+        inShort: "The written policy given for the service you booked is the one that applies.",
         paragraphs: [
-          "Circle membership, when offered, may include group gatherings, shared resources, and community guidelines we will provide at enrollment.",
-          "You agree to treat other members with care, keep what is shared in confidence, and follow any house rules posted for the Circle. We may suspend access if those rules are broken.",
+          "Specific scheduling, rescheduling, cancellation, and no-show policies may be provided at booking, in onboarding materials, or in a separate agreement. If there is a conflict, the written policy provided to you for the relevant service controls.",
         ],
       },
       {
-        id: "the-book",
-        title: "The book",
-        inShort: "The book is a written guide, not a personal coaching engagement and not medical or therapeutic advice.",
+        id: "payment",
+        title: "Payment and refunds",
+        inShort: "Fees, timing, and any refunds are shown at checkout or in a written agreement. Delivered services are generally non-refundable.",
         paragraphs: [
-          "Return To Baseline: A Guide Back To Yourself and any related excerpts on this site are for personal, non-commercial use unless we agree otherwise in writing.",
-          "Purchasing or reading the book does not create a coaching relationship. Coaching begins only when you book and we accept a session or program.",
-        ],
-      },
-      {
-        id: "fees-and-cancellation",
-        title: "Fees, booking, and cancellation",
-        inShort: "Show up when you book. If you cannot, give enough notice so the hour can be released.",
-        paragraphs: [
-          "Prices are shown at checkout or on the coaching pages. Unless stated otherwise, fees are in US dollars and are due when you book.",
-          "Placeholder cancellation policy for review: discovery calls may be cancelled or rescheduled at any time. Paid 1:1 sessions may be rescheduled with at least 24 hours’ notice. Late cancellations or no-shows may be charged in full.",
-          "Program refunds, if any, will be described at enrollment. Until that language is finalized, treat program fees as earned as sessions are delivered, unless required otherwise by law.",
-        ],
-      },
-      {
-        id: "your-responsibilities",
-        title: "Your responsibilities",
-        inShort: "Come as you are, tell the truth you can tell, and keep the space respectful.",
-        paragraphs: [
-          "You agree to provide accurate booking information, attend sessions on time, and use the site and Circle in a lawful, respectful way.",
-          "You will not share login links, record sessions without consent, harass anyone, or use Inner Mirror materials to offer competing coaching as if they were your own.",
-          "If you are in crisis or at risk of harm, you will seek emergency or clinical help rather than relying on coaching or this website. See the Disclaimer.",
+          "Prices, payment timing, and any refund policy (if offered) will be presented at checkout or in a written agreement. Unless otherwise stated in writing, all fees are non-refundable once services have been delivered.",
+          "If you use a third-party payment processor, your payment is also subject to that processor’s terms.",
         ],
       },
       {
         id: "intellectual-property",
         title: "Intellectual property",
-        inShort: "The words, marks, and materials on this site belong to Inner Mirror unless we say otherwise.",
+        inShort: "The site and our materials belong to us or our licensors. Do not copy them without written permission.",
         paragraphs: [
-          "The Inner Mirror name, logos, website, program materials, and book remain our intellectual property (or that of our licensors).",
-          "You receive a limited, personal license to use materials we give you in the course of coaching or Circle membership. You may not copy, sell, or republish them without written permission.",
+          "All content on the website and in our materials (including text, graphics, downloads, frameworks, and branding) is owned by us or our licensors and is protected by intellectual property laws.",
+          "You may not copy, reproduce, distribute, or create derivative works from our content without our prior written permission, except for personal, non-commercial use where explicitly permitted.",
         ],
       },
       {
-        id: "liability",
-        title: "Limitation of liability",
-        inShort: "We take care with the work. We do not accept open-ended responsibility for how life unfolds after a session.",
+        id: "confidentiality",
+        title: "Confidentiality",
+        inShort: "What you share in coaching is generally treated as confidential. The law and safety can require disclosure.",
+        paragraphs: ["We aim to create a respectful, privacy-conscious environment."],
+        bullets: [
+          "Information you share in coaching is generally treated as confidential.",
+          "However, confidentiality is not absolute. We may disclose information if required by law, court order, or if we believe disclosure is necessary to protect rights, safety, or prevent fraud.",
+        ],
+      },
+      {
+        id: "privacy",
+        title: "Privacy",
+        inShort: "These Terms work together with our Privacy Policy.",
+        paragraphs: ["Your use of the Services is also governed by our Privacy Policy."],
+      },
+      {
+        id: "third-party",
+        title: "Third-party links and tools",
+        inShort: "We do not control third-party sites or tools linked from the Services.",
         paragraphs: [
-          "To the fullest extent permitted by law, Inner Mirror and its owners, contractors, and affiliates are not liable for indirect, incidental, or consequential damages, or for loss of profit, data, or opportunity, arising from your use of the site or services.",
-          "Our total liability for any claim relating to the services will not exceed the amount you paid us for the specific service giving rise to the claim in the three months before the claim (placeholder cap — confirm with counsel).",
-          "Some jurisdictions do not allow certain limitations. In those places, our liability is limited to the maximum extent permitted.",
+          "The Services may reference or link to third-party websites or tools. We do not control and are not responsible for third-party content, policies, or practices.",
+        ],
+      },
+      {
+        id: "disclaimers",
+        title: "Disclaimers",
+        inShort: "The Services are provided as is. We do not guarantee specific outcomes.",
+        paragraphs: [
+          "The Services are provided on an “as is” and “as available” basis. To the fullest extent permitted by law, we disclaim all warranties, express or implied, including implied warranties of merchantability, fitness for a particular purpose, and non-infringement.",
+          "We do not guarantee specific outcomes. Results vary based on individual circumstances.",
+        ],
+      },
+      {
+        id: "limitation-of-liability",
+        title: "Limitation of liability",
+        inShort: "Liability is limited to what you paid for the relevant service in the prior three months, or $100 if you have not paid.",
+        paragraphs: [
+          "To the fullest extent permitted by law, The Inner Mirror LLC will not be liable for any indirect, incidental, special, consequential, or punitive damages, or any loss of profits, data, or goodwill, arising out of or related to your use of the Services.",
+          "To the fullest extent permitted by law, our total liability for any claim arising out of or relating to the Services will not exceed the amount you paid us for the relevant service in the 3 months before the event giving rise to the claim (or $100 if you have not paid us).",
+        ],
+      },
+      {
+        id: "indemnification",
+        title: "Indemnification",
+        inShort: "You agree to cover The Inner Mirror LLC if your use of the Services or a breach of these Terms causes a claim.",
+        paragraphs: [
+          "You agree to indemnify and hold harmless The Inner Mirror LLC from and against claims, liabilities, damages, losses, and expenses (including reasonable attorneys’ fees) arising out of or related to your use of the Services or your violation of these Terms.",
         ],
       },
       {
         id: "termination",
-        title: "Ending the relationship",
-        inShort: "Either of us can end coaching if it is no longer the right container.",
+        title: "Termination",
+        inShort: "We may suspend or end access if these Terms are broken or the Services are misused.",
         paragraphs: [
-          "You may stop using the site at any time. You may end a coaching engagement by written notice, subject to the cancellation rules above.",
-          "We may suspend or end access, or decline further sessions, if these Terms are broken, if the work is outside our scope, or if we reasonably believe continuing is unsafe or unworkable.",
+          "We may suspend or terminate access to the Services if we believe you have violated these Terms or misused the Services.",
+        ],
+      },
+      {
+        id: "changes",
+        title: "Changes to the Services or Terms",
+        inShort: "We may update these Terms. Continued use after a change is posted means you accept the update.",
+        paragraphs: [
+          "We may update the Services and these Terms from time to time. The updated Terms will be posted with a new “Last updated” date. Your continued use of the Services after changes become effective constitutes acceptance of the updated Terms.",
         ],
       },
       {
         id: "governing-law",
         title: "Governing law",
-        inShort: "These terms are written for a practice based in Georgia.",
+        inShort: "These Terms follow the law of the jurisdiction where The Inner Mirror LLC is organized.",
         paragraphs: [
-          "These Terms are governed by the laws of the State of Georgia, without regard to conflict-of-law rules, except where a mandatory consumer law in your place of residence says otherwise.",
-          "If a court finds any part of these Terms unenforceable, the rest still applies.",
-        ],
-      },
-      {
-        id: "changes-terms",
-        title: "Changes",
-        inShort: "We may update these terms as the practice grows. The date at the top is the current version.",
-        paragraphs: [
-          "We may revise these Terms from time to time. Continued use of the site or services after a change is posted constitutes acceptance of the updated Terms, except where the law requires a different process.",
+          "These Terms are governed by the laws of the jurisdiction where The Inner Mirror LLC is organized, without regard to conflict of law principles.",
         ],
       },
       {
         id: "contact-terms",
         title: "Contact",
-        inShort: "Questions about these terms: help@innermirror.com.",
+        inShort: "Questions about these Terms can be sent to us directly.",
         paragraphs: [
-          "Inner Mirror LLC, Atlanta, Georgia. Email help@innermirror.com.",
+          "Questions about these Terms? Contact us via the website’s Contact page or at help@innermirror.com.",
         ],
       },
     ],

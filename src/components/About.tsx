@@ -34,7 +34,10 @@ export function About() {
               loading="lazy"
               decoding="async"
             />
-            <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest/88 via-forest/30 to-transparent" />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-forest/88 via-forest/30 to-transparent"
+            />
             <div className="relative flex h-full min-h-[420px] items-end p-10">
               <p className="font-serif text-[26px] italic leading-snug text-bone">
                 &ldquo;Not fixing you.
@@ -47,12 +50,12 @@ export function About() {
           <Reveal delay={0.16} className="flex flex-col justify-center gap-7">
             <p className="text-[16.5px] leading-relaxed text-ink/70">
               I&apos;m Dr. Jejelola Owotomo — a PhD in Public Health (Epidemiology), certified life coach, author of{" "}
-              <span className="italic">Return To Baseline: A Guide Back To Yourself</span>, and founder of Inner Mirror LLC and The Inner
-              Mirror Circle.
+              <span className="italic">Return To Baseline: A Guide Back To Yourself</span>, and The Inner Mirror Circle.
             </p>
             <p className="text-[16.5px] leading-relaxed text-ink/70">
-              Grounded in the belief that you are who you attract, I specialize in wellness, burnout recovery, and mental health — helping
-              clients break repeating patterns and step confidently into authentic alignment.
+              Clarity changes everything, and you don’t have to find it alone. I will partner with you as a coach and co‑pilot—supporting
+              your wellness and burnout recovery through reflective, forward‑focused coaching that helps you break repeating patterns so you
+              can move with confidence and live inauthentic alignment.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5 border-y border-ink/10 py-6">

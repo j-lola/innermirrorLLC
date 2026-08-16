@@ -40,6 +40,25 @@ const offerings = [
   },
 ] as const;
 
+const approach = [
+  {
+    title: "A true partnership",
+    body: "This is a collaborative coaching relationship—we move forward together.",
+  },
+  {
+    title: "I’m your co-pilot",
+    body: "You stay in the driver’s seat; I support your direction, decisions, and momentum.",
+  },
+  {
+    title: "Witness · Observe · Reflect",
+    body: "I’m here to listen deeply and reflect what I’m noticing, so you can clarify your thinking and see yourself more clearly.",
+  },
+  {
+    title: "A safe, judgment-free space",
+    body: "Bring your real thoughts—no assumptions, no shame, no pressure—just honest exploration and growth.",
+  },
+] as const;
+
 function DiamondIcon() {
   return (
     <span className="mt-1 shrink-0 text-[10px] text-gold" aria-hidden="true">
@@ -52,20 +71,34 @@ export function Coaching() {
   return (
     <section id="coaching" className="bg-cream py-28 md:py-36">
       <Container>
-        <Reveal>
-          <Eyebrow>Coaching</Eyebrow>
-        </Reveal>
-        <Reveal delay={0.05}>
-          <h2 className="max-w-[20ch] font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-medium leading-[1.05] tracking-tight text-forest">
-            My Coaching <Serif>Approach.</Serif>
-          </h2>
-        </Reveal>
-        <Reveal delay={0.1}>
-          <p className="mt-5 max-w-[480px] text-[16.5px] leading-relaxed text-stone">
-            It&apos;s a human-first, collaborative partnership that sees you as whole and honors you as the expert on your own life.
-            Together, we create a safe, judgment-free space where you can drop your armor and return to yourself.
-          </p>
-        </Reveal>
+        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:gap-20">
+          <div>
+            <Reveal>
+              <Eyebrow>Coaching</Eyebrow>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="max-w-[12ch] font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-medium leading-[1.05] tracking-tight text-forest">
+                My Coaching <Serif>Approach.</Serif>
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="mt-5 max-w-[44ch] text-[16.5px] leading-relaxed text-forest/75">
+                It&apos;s a human-first, collaborative partnership that sees you as whole and honors you as the expert on your own life.
+                Together, we create a safe, judgment-free space where you can drop your armor and return to yourself.
+              </p>
+            </Reveal>
+          </div>
+
+          <RevealGroup className="grid grid-cols-1 gap-x-10 gap-y-9 sm:grid-cols-2">
+            {approach.map((item) => (
+              <motion.div key={item.title} variants={revealItemVariants}>
+                <span className="mb-4 block h-px w-7 bg-gold" aria-hidden="true" />
+                <h3 className="font-serif text-[1.28rem] leading-snug text-forest">{item.title}</h3>
+                <p className="mt-2 text-[14.5px] leading-relaxed text-forest/75">{item.body}</p>
+              </motion.div>
+            ))}
+          </RevealGroup>
+        </div>
 
         <RevealGroup className="mt-16 grid grid-cols-1 gap-6 lg:grid-cols-3">
           {offerings.map((offering) => (

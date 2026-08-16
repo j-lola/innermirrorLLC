@@ -145,6 +145,29 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
                       ))}
                     </ul>
                   ) : null}
+                  {section.groups?.map((group) => (
+                    <div key={group.heading ?? group.paragraphs?.[0] ?? group.bullets?.[0]} className="mt-6">
+                      {group.heading ? (
+                        <h3 className="font-serif text-[1.35rem] font-medium leading-snug tracking-tight">
+                          {group.heading}
+                        </h3>
+                      ) : null}
+                      {group.paragraphs?.map((paragraph) => (
+                        <p key={paragraph} className="mt-3 max-w-[65ch] text-[16.5px] leading-relaxed text-forest/80">
+                          {paragraph}
+                        </p>
+                      ))}
+                      {group.bullets ? (
+                        <ul className="mt-3 max-w-[65ch]">
+                          {group.bullets.map((item) => (
+                            <li key={item} className="text-[16.5px] leading-relaxed text-forest/80">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null}
+                    </div>
+                  ))}
                 </section>
               ))}
 
