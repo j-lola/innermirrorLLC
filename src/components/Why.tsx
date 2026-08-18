@@ -29,7 +29,7 @@ export function Why() {
         <Reveal delay={0.2} className="max-w-[600px]">
           <p className="text-[16.5px] leading-relaxed text-bone/80">
             At Inner Mirror Coaching, we believe that your external life, your relationships,
-            career, stress levels, and boundaries, is a direct reflection of your internal
+            career, stress levels, and boundaries, are direct reflections of your internal
             state. Our practice provides a transformative, safe space to look beyond
             surface-level habits and uncover the underlying patterns shaping your daily reality.
           </p>

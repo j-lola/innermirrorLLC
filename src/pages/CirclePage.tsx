@@ -19,7 +19,7 @@ export function CirclePage() {
     applySeo({
       title: "The Inner Mirror Circle | Inner Mirror Coaching",
       description:
-        "A community for women 25–55 to feel seen, supported, and safe enough to grow. Real women, real connection — The Inner Mirror Circle.",
+        "A community for women 25–50 to feel seen, supported, and safe enough to grow. Real women, real connection — The Inner Mirror Circle.",
       path: "/circle",
     });
   }, []);
@@ -53,7 +53,7 @@ export function CirclePage() {
                   Who we serve
                 </h2>
                 <p className="mt-4 text-[16.5px] leading-relaxed text-circle-plum/80">
-                  Inner Mirror Circle holds a special home for women between the ages of 25 and 55. It is a
+                  Inner Mirror Circle holds a special home for women between the ages of 25 and 50. It is a
                   community-first practice — a circle where women feel seen, supported, and safe enough to grow.
                 </p>
               </section>
