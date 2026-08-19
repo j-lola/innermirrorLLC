@@ -66,8 +66,8 @@ export function Footer() {
             <div id="contact">
               <h5 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.1em] text-gold">Contact</h5>
               <div className="flex flex-col gap-2.5 text-sm text-stone">
-                <a href="mailto:help@innermirror.com" className="transition-colors hover:text-forest">
-                  help@innermirror.com
+                <a href="mailto:info@theinnermirrorcoaching.com" className="transition-colors hover:text-forest">
+                  info@theinnermirrorcoaching.com
                 </a>
                 <p>Atlanta, Georgia</p>
               </div>

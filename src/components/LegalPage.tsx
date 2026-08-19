@@ -84,8 +84,8 @@ export function LegalPage({ doc }: { doc: LegalDoc }) {
               <span>
                 Placeholder language for layout and review. This is not legal advice and is not in force until counsel
                 replaces it.{" "}
-                <a href="mailto:help@innermirror.com" className="text-forest underline decoration-gold/70 underline-offset-4 hover:decoration-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
-                  help@innermirror.com
+                <a href="mailto:info@theinnermirrorcoaching.com" className="text-forest underline decoration-gold/70 underline-offset-4 hover:decoration-gold focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold">
+                  info@theinnermirrorcoaching.com
                 </a>
               </span>
             </p>

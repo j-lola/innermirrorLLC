@@ -216,7 +216,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
         title: "Contact us",
         inShort: "Privacy questions can be sent to us directly.",
         paragraphs: [
-          "Questions about this Privacy Policy? Contact us via the website’s Contact page or at help@innermirror.com.",
+          "Questions about this Privacy Policy? Contact us via the website’s Contact page or at info@theinnermirrorcoaching.com.",
         ],
       },
     ],
@@ -376,7 +376,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
         title: "Contact",
         inShort: "Questions about these Terms can be sent to us directly.",
         paragraphs: [
-          "Questions about these Terms? Contact us via the website’s Contact page or at help@innermirror.com.",
+          "Questions about these Terms? Contact us via the website’s Contact page or at info@theinnermirrorcoaching.com.",
         ],
       },
     ],
@@ -442,7 +442,7 @@ export const LEGAL_DOCS: LegalDoc[] = [
         title: "Contact",
         inShort: "Questions about this disclaimer can be sent to us directly.",
         paragraphs: [
-          "If you have questions about this disclaimer, contact us via the website’s Contact page or at help@innermirror.com.",
+          "If you have questions about this disclaimer, contact us via the website’s Contact page or at info@theinnermirrorcoaching.com.",
         ],
       },
     ],
