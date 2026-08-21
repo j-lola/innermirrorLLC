@@ -134,6 +134,19 @@ body {
   color: var(--color-circle-ivory);
 }
 
+.circle-theme input {
+  caret-color: var(--color-circle-gold);
+}
+
+.circle-theme input:-webkit-autofill,
+.circle-theme input:-webkit-autofill:hover,
+.circle-theme input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--color-circle-ivory);
+  caret-color: var(--color-circle-gold);
+  box-shadow: 0 0 0 1000px rgb(109 59 71 / 0.55) inset;
+  transition: background-color 9999s ease-out;
+}
+
 .cal-booking-shell {
   scrollbar-gutter: stable;
 }

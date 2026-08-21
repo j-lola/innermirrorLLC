@@ -33,7 +33,7 @@ export function Hero() {
       id="top"
       ref={sectionRef}
       onPointerMove={handlePointerMove}
-      className="relative overflow-hidden bg-bone pb-0 pt-36 text-forest md:pt-44"
+      className="relative overflow-hidden bg-bone pb-0 pt-40 text-forest md:pt-48 lg:pt-52"
     >
       <div aria-hidden="true" className="pointer-events-none absolute -right-24 top-16 h-72 w-72 rounded-full bg-sage/10 blur-3xl" />
       <div aria-hidden="true" className="pointer-events-none absolute -left-16 bottom-24 h-56 w-56 rounded-full bg-gold/10 blur-3xl" />
