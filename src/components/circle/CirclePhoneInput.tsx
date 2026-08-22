@@ -67,15 +67,14 @@ export function CirclePhoneInput({ id, value, onChange, disabled, required, inva
         onChange(sanitized ? sanitized : undefined);
       }}
       disabled={disabled}
-      required={required}
       numberInputProps={{
         id,
         name: "phone",
         autoComplete: "tel",
         inputMode: "numeric",
-        pattern: "[0-9]*",
         placeholder: "Phone number",
         "aria-invalid": invalid || undefined,
+        "aria-required": required || undefined,
         onKeyDown: handlePhoneKeyDown,
         onPaste: handlePhonePaste,
       }}
