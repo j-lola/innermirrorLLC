@@ -1,4 +1,7 @@
 import { useEffect, useState, type FormEvent } from "react";
+import type { Value } from "react-phone-number-input";
+import { isCircleEmailConfigured, sendCircleJoinRequest } from "../../lib/emailjs";
+import { CirclePhoneInput, isValidCirclePhone } from "./CirclePhoneInput";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -11,6 +14,8 @@ const labelClass = "block text-[12px] font-semibold uppercase tracking-[0.12em] 
 
 export function CircleJoinForm() {
   const [status, setStatus] = useState<Status>("idle");
+  const [phone, setPhone] = useState<Value>();
+  const [phoneInvalid, setPhoneInvalid] = useState(false);
 
   useEffect(() => {
     if (status !== "success") return;
@@ -28,13 +33,39 @@ export function CircleJoinForm() {
       return;
     }
 
+    const nameInput = form.elements.namedItem("name");
+    const emailInput = form.elements.namedItem("email");
+
+    if (!(nameInput instanceof HTMLInputElement) || !(emailInput instanceof HTMLInputElement)) {
+      setStatus("error");
+      return;
+    }
+
+    const name = nameInput.value.trim();
+    const email = emailInput.value.trim();
+
+    if (!name || !email) return;
+
+    if (!isValidCirclePhone(phone)) {
+      setPhoneInvalid(true);
+      return;
+    }
+
+    setPhoneInvalid(false);
     setStatus("submitting");
 
-    // EmailJS will replace this submit handler. For now we collect the fields
-    // and show a confirmation so the form is ready to wire.
-    await new Promise((resolve) => setTimeout(resolve, 400));
-    form.reset();
-    setStatus("success");
+    try {
+      if (!isCircleEmailConfigured()) {
+        throw new Error("EmailJS is not configured");
+      }
+
+      await sendCircleJoinRequest({ name, email, phone: phone as string });
+      form.reset();
+      setPhone(undefined);
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    }
   }
 
   if (status === "success") {
@@ -98,18 +129,22 @@ export function CircleJoinForm() {
 
         <div>
           <label htmlFor="circle-phone" className={labelClass}>
-            Phone
+            Phone number
           </label>
-          <input
+          <CirclePhoneInput
             id="circle-phone"
-            name="phone"
-            type="tel"
-            autoComplete="tel"
-            required
-            placeholder="(404) 555-0100"
-            className={fieldClass}
+            value={phone}
+            onChange={(value) => {
+              setPhone(value);
+              if (phoneInvalid) setPhoneInvalid(false);
+            }}
             disabled={status === "submitting"}
+            required
+            invalid={phoneInvalid}
           />
+          {phoneInvalid && (
+            <p className="mt-2 text-[13px] text-circle-mauve">Enter a valid phone number using digits only.</p>
+          )}
         </div>
       </div>
 

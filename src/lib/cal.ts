@@ -1,8 +1,8 @@
-export const CAL_USERNAME = "oluwatobi";
+export const CAL_USERNAME = "innermirrorcoaching";
 
 export const CAL_EVENTS = {
-  discovery: "discovery-call",
-  session: "1-1-coaching-session-test",
+  discovery: "discovery-session",
+  session: "coaching",
 } as const;
 
 export type CalEventKey = keyof typeof CAL_EVENTS;

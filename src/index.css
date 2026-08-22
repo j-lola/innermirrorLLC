@@ -147,6 +147,82 @@ body {
   transition: background-color 9999s ease-out;
 }
 
+.circle-phone-input.PhoneInput {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(245 239 230 / 0.2);
+  background: rgb(245 239 230 / 0.08);
+  padding: 0.35rem 0.75rem;
+  transition:
+    border-color 200ms,
+    box-shadow 200ms;
+}
+
+.circle-phone-input.PhoneInput:focus-within {
+  border-color: rgb(201 168 76 / 0.7);
+  box-shadow: 0 0 0 3px rgb(201 168 76 / 0.22);
+}
+
+.circle-phone-input--invalid.PhoneInput {
+  border-color: rgb(196 132 122 / 0.75);
+}
+
+.circle-phone-input--disabled.PhoneInput {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.circle-phone-input .PhoneInputCountry {
+  position: relative;
+  align-self: center;
+  flex-shrink: 0;
+  margin-right: 0.5rem;
+  padding-right: 0.5rem;
+  border-right: 1px solid rgb(245 239 230 / 0.15);
+}
+
+.circle-phone-input .PhoneInputCountrySelect {
+  z-index: 1;
+}
+
+.circle-phone-input .PhoneInputCountryIcon {
+  width: 1.35rem;
+  height: 1rem;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: none;
+}
+
+.circle-phone-input .PhoneInputCountryIcon--border {
+  box-shadow: none;
+}
+
+.circle-phone-input .PhoneInputCountrySelectArrow {
+  margin-left: 0.35rem;
+  border-color: var(--color-circle-ivory);
+  opacity: 0.55;
+}
+
+.circle-phone-input .PhoneInputInput {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  z-index: 2;
+  border: 0;
+  background: transparent;
+  padding: 0.55rem 0.25rem;
+  font-family: var(--font-sans);
+  font-size: 15px;
+  color: var(--color-circle-ivory);
+  outline: none;
+}
+
+.circle-phone-input .PhoneInputInput::placeholder {
+  color: rgb(245 239 230 / 0.4);
+}
+
 .cal-booking-shell {
   scrollbar-gutter: stable;
 }
