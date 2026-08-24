@@ -32,7 +32,7 @@ const offerings = [
       "12 individual sessions (60 min)",
       "Phase 1 — Unlearn: naming the roles you've outgrown",
       "Phase 2 — Return: reconnecting with what's true",
-      "Phase 3 — Reveal: practicing her, out loud",
+      "Phase 3 — Reveal: practicing them, out loud",
     ],
     price: "$1,100",
     priceDetail: "/ program",

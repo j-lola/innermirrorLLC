@@ -50,7 +50,7 @@ export function Book() {
                   Get the book
                 </Button>
               ) : (
-                <Button href={BOOK_AMAZON_URL} variant="dark" onClick={(event) => event.preventDefault()}>
+                <Button href="#" variant="dark" onClick={(event) => event.preventDefault()}>
                   Get the book
                 </Button>
               )}
