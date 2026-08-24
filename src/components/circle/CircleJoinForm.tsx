@@ -116,7 +116,16 @@ export function CircleJoinForm() {
 
       <div className="mt-8">
         <p className={labelClass}>Step 1 — Pay membership</p>
-        {!isCirclePaypalReady && (
+        {isCirclePaypalReady ? (
+          <a
+            href={CIRCLE_PAYPAL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`${actionClass} mt-2`}
+          >
+            Pay membership
+          </a>
+        ) : (
           <button type="button" disabled className={`${actionClass} mt-2`}>
             Pay membership
           </button>
