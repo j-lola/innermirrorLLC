@@ -31,6 +31,6 @@ export const CIRCLE_FAQS = [
   },
   {
     q: "Is this subscription-based?",
-    a: "Yes. Membership is a paid yearly subscription. Pay on PayPal first, then complete registration on this page.",
+    a: "Yes. Membership is a paid yearly subscription through PayPal. Include your name, email, and phone in the PayPal note so we can confirm your place.",
   },
 ] as const;
