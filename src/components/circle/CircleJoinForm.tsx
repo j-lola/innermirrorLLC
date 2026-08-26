@@ -4,9 +4,9 @@ import type { Value } from "react-phone-number-input";
 import { isCircleEmailConfigured, sendCircleJoinRequest } from "../../lib/emailjs";
 import {
   CIRCLE_MEMBERSHIP_PRICE,
-  CIRCLE_PAYPAL_URL,
   isCirclePaypalReady,
 } from "../../lib/circle-payment";
+import { CirclePayPalButton } from "./CirclePayPalButton";
 import { CirclePhoneInput, isValidCirclePhone } from "./CirclePhoneInput";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -117,21 +117,14 @@ export function CircleJoinForm() {
       <div className="mt-8">
         <p className={labelClass}>Step 1 — Pay membership</p>
         {isCirclePaypalReady ? (
-          <a
-            href={CIRCLE_PAYPAL_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`${actionClass} mt-2`}
-          >
-            Pay membership
-          </a>
+          <CirclePayPalButton />
         ) : (
           <button type="button" disabled className={`${actionClass} mt-2`}>
             Pay membership
           </button>
         )}
         <p className="mt-3 text-[13.5px] leading-relaxed text-circle-ivory/70">
-          You’ll complete payment on PayPal, then return here to register.
+          Complete payment with PayPal, then return here to register.
         </p>
       </div>
 
