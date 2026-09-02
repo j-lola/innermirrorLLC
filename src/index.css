@@ -105,6 +105,35 @@ body {
   }
 }
 
+.testimonial-marquee {
+  animation-duration: 55s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-marquee-scroll {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--color-gold) 55%, transparent) transparent;
+  }
+
+  .testimonial-marquee-scroll .testimonial-marquee {
+    width: auto;
+    padding-bottom: 0.5rem;
+  }
+}
+
+.testimonial-marquee-fade {
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+@media (max-width: 767px) {
+  .testimonial-marquee-fade {
+    mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+  }
+}
+
 .grain {
   position: fixed;
   inset: 0;

@@ -5,6 +5,7 @@ import { Hero } from "../components/Hero";
 import { About } from "../components/About";
 import { Why } from "../components/Why";
 import { Coaching } from "../components/Coaching";
+import { Testimonials } from "../components/Testimonials";
 import { Book } from "../components/Book";
 import { Circle } from "../components/Circle";
 import { Bookings } from "../components/Bookings";
@@ -36,6 +37,7 @@ export function HomePage() {
         <About />
         <Why />
         <Coaching />
+        <Testimonials />
         <Bookings />
         <Book />
         <Circle />
