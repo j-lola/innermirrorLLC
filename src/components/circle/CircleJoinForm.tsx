@@ -21,7 +21,7 @@ export function CircleJoinForm() {
         Join the Inner Mirror Circle
       </p>
       <p className="mt-3 font-serif text-[2rem] leading-tight">{priceLine}</p>
-      <p className="mt-3 text-[13px] text-circle-ivory/70">founding cohort · billed yearly</p>
+      <p className="mt-3 text-[13px] text-circle-ivory/70">founding cohort · billed yearly · October 2026</p>
 
       {returnedFromPaypal && (
         <p

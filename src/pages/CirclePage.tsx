@@ -71,13 +71,18 @@ export function CirclePage() {
                     ))}
                   </div>
                 </Reveal>
+                <Reveal delay={0.12}>
+                  <p className="mt-8 max-w-[40ch] font-display text-[17px] font-bold leading-snug text-circle-plum">
+                    You are who you attract
+                  </p>
+                </Reveal>
                 <Reveal delay={0.14}>
                   <div className="mt-9">
                     <a
                       href="#join"
                       className="inline-flex min-h-11 items-center justify-center rounded-full bg-circle-gold px-8 py-4 font-sans text-sm font-semibold tracking-tight text-circle-plum transition-[transform,box-shadow] duration-200 ease-out hover:-translate-y-0.5 hover:shadow-[0_16px_32px_-16px_rgba(109,59,71,0.35)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-circle-gold"
                     >
-                      Join the community
+                      Join and subscribe
                     </a>
                   </div>
                 </Reveal>

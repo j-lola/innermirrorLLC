@@ -50,17 +50,6 @@ export function Hero() {
       />
 
       <Container className="relative z-10">
-        <div className="mb-9 inline-flex items-center gap-2 rounded-full border border-cream bg-white/70 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-stone shadow-[0_8px_24px_-16px_rgba(44,52,42,0.1)] backdrop-blur-sm">
-          <span className="relative flex h-[7px] w-[7px]">
-            <motion.span
-              className="absolute inset-0 rounded-full bg-gold"
-              animate={shouldReduceMotion ? {} : { opacity: [0.9, 0.35, 0.9] }}
-              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </span>
-          Doors open · August 2026
-        </div>
-
         <h1 className="mb-8 max-w-[22ch] font-serif text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.02] tracking-tight">
           Find Your Inner <span className="italic text-gold">Self.</span>
         </h1>

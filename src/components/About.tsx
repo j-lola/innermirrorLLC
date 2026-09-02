@@ -4,7 +4,7 @@ import { Container, Eyebrow, Serif } from "./ui";
 const stats = [
   { value: "1:1", label: "Private sessions" },
   { value: "12wk", label: "Program" },
-  { value: "Aug '26", label: "Circle opens" },
+  { value: "Oct '26", label: "Circle opens" },
 ];
 
 export function About() {
@@ -55,7 +55,7 @@ export function About() {
             <p className="text-[16.5px] leading-relaxed text-ink/70">
               Clarity changes everything, and you don’t have to find it alone. I will partner with you as a coach and co‑pilot—supporting
               your wellness and burnout recovery through reflective, forward‑focused coaching that helps you break repeating patterns so you
-              can move with confidence and live inauthentic alignment.
+              can move with confidence and live in authentic alignment.
             </p>
 
             <div className="flex flex-wrap items-center gap-x-8 gap-y-5 border-y border-ink/10 py-6">

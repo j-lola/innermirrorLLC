@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         <div className="flex flex-wrap items-center justify-between gap-3 pt-7 text-[12.5px] text-stone">
-          <span>© 2026 Inner Mirror Coaching. Launching August 2026.</span>
+          <span>© 2026 Inner Mirror Coaching. Launching October 2026.</span>
           <span>Powered by Radiksez LLC</span>
         </div>
       </Container>

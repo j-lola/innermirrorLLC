@@ -55,14 +55,16 @@ export function Circle() {
             </RevealGroup>
           </Reveal>
 
-          <Reveal delay={0.16} className="rounded-[20px] border border-gold/35 bg-forest/20 p-9 text-center">
+          <Reveal
+            delay={0.16}
+            className="flex h-full flex-col items-center justify-center rounded-[20px] border border-gold/35 bg-forest/20 p-9 text-center"
+          >
             <div className="font-display text-xs font-semibold uppercase tracking-[0.14em] text-gold">
               Join the Inner Mirror Circle
             </div>
-            <div className="my-3 font-display text-[26px] font-semibold leading-snug text-bone">Pricing revealed at launch</div>
-            <div className="mb-7 text-[12.5px] text-bone/60">billed yearly · founding cohort · Aug 2026</div>
+            <div className="mb-7 mt-3 text-[12.5px] text-bone/60">billed yearly · founding cohort · October 2026</div>
             <Button href="/circle" variant="primary" className="w-full">
-              Join the community
+              Join and subscribe
             </Button>
           </Reveal>
         </div>
