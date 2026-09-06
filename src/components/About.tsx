@@ -15,11 +15,14 @@ export function About() {
           <Eyebrow>About me</Eyebrow>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="max-w-[20ch] font-display text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.05] tracking-tight">
-            I didn&apos;t find my reflection.
-            <br />
-            <Serif>I built it.</Serif>
+          <h2 className="max-w-[24ch] font-display text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.05] tracking-tight">
+            Meet Your Coach — Dr. Jejelola Owotomo
           </h2>
+        </Reveal>
+        <Reveal delay={0.08}>
+          <p className="mt-4 max-w-[28ch] font-serif text-[clamp(1.35rem,2.4vw,1.75rem)] italic leading-snug text-ink/80">
+            I didn&apos;t find my reflection. <Serif>I built it.</Serif>
+          </p>
         </Reveal>
 
         <div className="mt-16 grid grid-cols-1 gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-stretch">

@@ -5,9 +5,9 @@ import { Container } from "./ui";
 import { Logo } from "./Logo";
 
 const links = [
-  { to: "/#about", label: "About" },
+  { to: "/about", label: "About" },
   { to: "/#coaching", label: "Coaching" },
-  { to: "/#book", label: "Book" },
+  { to: "/discovery", label: "Book" },
   { to: "/circle", label: "Circle" },
 ] as const;
 
@@ -40,7 +40,7 @@ export function Navbar() {
 
           <div className="ml-auto flex shrink-0 items-center gap-2 sm:gap-3">
             <Link
-              to="/#bookings"
+              to="/discovery"
               className="rounded-full bg-gold px-4 py-2.5 font-sans text-[12.5px] font-semibold text-bone transition-transform duration-200 hover:-translate-y-0.5 sm:px-5 sm:text-[13px]"
             >
               <span className="sm:hidden">Book session</span>

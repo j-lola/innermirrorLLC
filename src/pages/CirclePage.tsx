@@ -6,7 +6,7 @@ import { CircleNav } from "../components/circle/CircleNav";
 import { Container } from "../components/ui";
 import { Footer } from "../components/Footer";
 import { Reveal, RevealGroup } from "../components/Reveal";
-import { applySeo } from "../lib/seo";
+import { applySeo, CIRCLE_SEO } from "../lib/seo";
 import { revealItemVariants } from "../lib/motion";
 import {
   CIRCLE_FAQS,
@@ -28,12 +28,7 @@ export function CirclePage() {
   const { hash } = useLocation();
 
   useEffect(() => {
-    applySeo({
-      title: "The Inner Mirror Circle | Inner Mirror Coaching",
-      description:
-        "An in-person community for women 25–50 — guided reflection, meaningful connection, and aligned action. Meet three times a year.",
-      path: "/circle",
-    });
+    applySeo(CIRCLE_SEO);
   }, []);
 
   useEffect(() => {
@@ -55,8 +50,8 @@ export function CirclePage() {
             <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-16">
               <div>
                 <Reveal>
-                  <h1 className="max-w-[14ch] font-serif text-[clamp(2.4rem,5.4vw,4.4rem)] font-medium leading-[1.04] tracking-tight text-circle-plum">
-                    The Inner Mirror <span className="italic">Circle.</span>
+                  <h1 className="max-w-[18ch] font-serif text-[clamp(2.2rem,5vw,4rem)] font-medium leading-[1.06] tracking-tight text-circle-plum">
+                    The Inner Mirror Circle — A Community for People Ready to Change the Pattern
                   </h1>
                 </Reveal>
                 <Reveal delay={0.06}>
@@ -72,11 +67,6 @@ export function CirclePage() {
                   </div>
                 </Reveal>
                 <Reveal delay={0.12}>
-                  <p className="mt-8 max-w-[40ch] font-display text-[17px] font-bold leading-snug text-circle-plum">
-                    You are who you attract
-                  </p>
-                </Reveal>
-                <Reveal delay={0.14}>
                   <div className="mt-9">
                     <a
                       href="#join"

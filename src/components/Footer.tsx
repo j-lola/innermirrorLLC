@@ -3,7 +3,7 @@ import { Container } from "./ui";
 import { Logo } from "./Logo";
 
 const exploreLinks = [
-  { to: "/#about", label: "About Me" },
+  { to: "/about", label: "About Me" },
   { to: "/#coaching", label: "Coaching" },
   { to: "/#book", label: "The Book" },
   { to: "/circle", label: "Inner Mirror Circle" },

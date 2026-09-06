@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from "react";
+import { Link } from "react-router-dom";
 
 type Variant = "primary" | "dark" | "outline" | "outline-dark";
 
@@ -31,8 +32,17 @@ export function Button({ variant = "primary", className = "", children, ...props
   const classes = `${base} ${variants[variant]} ${className}`;
 
   if ("href" in props && props.href) {
+    const { href, ...rest } = props as AnchorHTMLAttributes<HTMLAnchorElement> & { href: string };
+    if (href.startsWith("/") && !href.startsWith("//")) {
+      return (
+        <Link to={href} className={classes} {...rest}>
+          {children}
+        </Link>
+      );
+    }
+
     return (
-      <a className={classes} {...(props as AnchorHTMLAttributes<HTMLAnchorElement>)}>
+      <a className={classes} href={href} {...rest}>
         {children}
       </a>
     );

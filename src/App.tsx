@@ -23,6 +23,8 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<HomePage />} />
+        <Route path="/discovery" element={<HomePage />} />
         <Route path="/circle" element={<CirclePage />} />
         <Route path="/privacy" element={<PrivacyPolicy />} />
         <Route path="/terms" element={<TermsOfService />} />

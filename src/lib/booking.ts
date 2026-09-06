@@ -45,8 +45,8 @@ export function parseBookingType(value: string | null): BookingType {
 }
 
 export function bookingHref(type: BookingType): string {
-  if (type === "discovery") return "#bookings";
-  return "/?booking=session#bookings";
+  if (type === "discovery") return "/discovery";
+  return "/discovery?booking=session";
 }
 
 export { BOOKING_TYPES };

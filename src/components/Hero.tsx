@@ -3,7 +3,6 @@ import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } fro
 import { Container } from "./ui";
 import { Button } from "./Button";
 import { NoticeMark } from "./NoticeMark";
-import { handleAnchorClick } from "../lib/scroll";
 
 const disclaimer = "Coaching is not therapy/medical advice; results vary; seek appropriate professional help when needed.";
 
@@ -50,19 +49,23 @@ export function Hero() {
       />
 
       <Container className="relative z-10">
-        <h1 className="mb-8 max-w-[22ch] font-serif text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.02] tracking-tight">
-          Find Your Inner <span className="italic text-gold">Self.</span>
+        <h1 className="mb-5 max-w-[22ch] font-serif text-[clamp(2.75rem,7.2vw,6rem)] font-medium leading-[1.02] tracking-tight">
+          Break the Patterns Holding You Back — Find Your Way Back to <span className="italic text-gold">Yourself</span>
         </h1>
+
+        <p className="mb-4 max-w-[40ch] font-display text-[17px] font-semibold leading-snug text-forest/90">
+          You are who you attract
+        </p>
 
         <p className="mb-11 max-w-[440px] text-lg leading-relaxed text-stone">
           A safe space for self-discovery — helping you see yourself clearly in the inner mirror and reconnect with who you truly are.
         </p>
 
         <div className="flex flex-wrap items-center gap-4">
-          <Button href="#bookings" onClick={handleAnchorClick} variant="primary">
+          <Button href="/discovery" variant="primary">
             Book a discovery call
           </Button>
-          <Button href="#about" onClick={handleAnchorClick} variant="outline-dark">
+          <Button href="/about" variant="outline-dark">
             Meet your coach
           </Button>
         </div>

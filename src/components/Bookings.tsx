@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import { Reveal } from "./Reveal";
-import { Container, Eyebrow, Serif } from "./ui";
+import { Container, Eyebrow } from "./ui";
 import { CalEmbed } from "./CalEmbed";
 import { getCalLinkForBooking } from "../lib/cal";
 import { BOOKING_DETAILS, BOOKING_TYPES, parseBookingType, type BookingType } from "../lib/booking";
@@ -26,8 +26,8 @@ export function Bookings() {
           <Eyebrow>Bookings</Eyebrow>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="max-w-[20ch] font-display text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.05] tracking-tight">
-            Let&apos;s meet your <Serif>reflection.</Serif>
+          <h2 className="max-w-[22ch] font-display text-[clamp(2rem,4.2vw,3.4rem)] font-semibold leading-[1.05] tracking-tight">
+            Book Your Free Discovery Call
           </h2>
         </Reveal>
         <Reveal delay={0.1}>

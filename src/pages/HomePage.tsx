@@ -10,23 +10,35 @@ import { Book } from "../components/Book";
 import { Circle } from "../components/Circle";
 import { Bookings } from "../components/Bookings";
 import { Footer } from "../components/Footer";
-import { applySeo, SITE_DESCRIPTION, SITE_TITLE } from "../lib/seo";
+import { ABOUT_SEO, applySeo, DISCOVERY_SEO, HOME_SEO } from "../lib/seo";
+
+const SEO_BY_PATH: Record<string, { title: string; description: string; path: string }> = {
+  "/": HOME_SEO,
+  "/about": ABOUT_SEO,
+  "/discovery": DISCOVERY_SEO,
+};
+
+const SCROLL_BY_PATH: Record<string, string> = {
+  "/about": "about",
+  "/discovery": "bookings",
+};
 
 export function HomePage() {
-  const { hash } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    applySeo({ title: SITE_TITLE, description: SITE_DESCRIPTION, path: "/" });
-  }, []);
+    applySeo(SEO_BY_PATH[pathname] ?? HOME_SEO);
+  }, [pathname]);
 
   useEffect(() => {
-    if (!hash) return;
-    const target = document.getElementById(hash.slice(1));
+    const sectionId = SCROLL_BY_PATH[pathname] ?? (hash ? hash.slice(1) : "");
+    if (!sectionId) return;
+    const target = document.getElementById(sectionId);
     if (!target) return;
     requestAnimationFrame(() => {
       target.scrollIntoView({ behavior: "smooth", block: "start" });
     });
-  }, [hash]);
+  }, [pathname, hash]);
 
   return (
     <>
