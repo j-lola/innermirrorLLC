@@ -1,6 +1,8 @@
+import { LEGAL_DOCS } from "../content/legal";
+
 export const SITE_URL = "https://theinnermirrorcoaching.com";
 export const SITE_NAME = "Inner Mirror Coaching";
-export const SITE_IMAGE = `${SITE_URL}/og-image.jpg`;
+export const SITE_IMAGE = `${SITE_URL}/og-image.png`;
 export const SITE_IMAGE_ALT = "Dr. Jejelola Owotomo, founder of Inner Mirror Coaching";
 
 export const HOME_SEO = {
@@ -31,16 +33,41 @@ export const DISCOVERY_SEO = {
   path: "/discovery",
 } as const;
 
+export const PRERENDER_ROUTES = [
+  "/",
+  "/about",
+  "/discovery",
+  "/circle",
+  "/privacy",
+  "/terms",
+  "/disclaimer",
+] as const;
+
+const LEGAL_PATHS: Record<string, string> = {
+  privacy: "/privacy",
+  terms: "/terms",
+  disclaimer: "/disclaimer",
+};
+
 /** @deprecated Use HOME_SEO.title */
 export const SITE_TITLE = HOME_SEO.title;
 /** @deprecated Use HOME_SEO.description */
 export const SITE_DESCRIPTION = HOME_SEO.description;
 
-type SeoInput = {
+export type SeoInput = {
   title: string;
   description: string;
   path: string;
 };
+
+type HeadElement = {
+  type: "meta" | "link";
+  props: Record<string, string>;
+};
+
+function canonicalUrl(path: string) {
+  return `${SITE_URL}${path === "/" ? "/" : path}`;
+}
 
 function upsertMeta(attr: "name" | "property", key: string, content: string) {
   const selector = `meta[${attr}="${key}"]`;
@@ -63,8 +90,52 @@ function upsertCanonical(href: string) {
   el.href = href;
 }
 
+export function getSeoForPath(pathname: string): SeoInput {
+  const path = pathname === "/" ? "/" : pathname.replace(/\/$/, "") || "/";
+
+  if (path === HOME_SEO.path) return HOME_SEO;
+  if (path === CIRCLE_SEO.path) return CIRCLE_SEO;
+  if (path === ABOUT_SEO.path) return ABOUT_SEO;
+  if (path === DISCOVERY_SEO.path) return DISCOVERY_SEO;
+
+  const legal = LEGAL_DOCS.find((doc) => LEGAL_PATHS[doc.slug] === path);
+  if (legal) {
+    return {
+      title: `${legal.title} | Inner Mirror Coaching`,
+      description: legal.description,
+      path,
+    };
+  }
+
+  return HOME_SEO;
+}
+
+export function buildPrerenderHead({ title, description, path }: SeoInput) {
+  const url = canonicalUrl(path);
+
+  const elements: HeadElement[] = [
+    { type: "meta", props: { name: "description", content: description } },
+    { type: "link", props: { rel: "canonical", href: url } },
+    { type: "meta", props: { property: "og:site_name", content: SITE_NAME } },
+    { type: "meta", props: { property: "og:title", content: title } },
+    { type: "meta", props: { property: "og:description", content: description } },
+    { type: "meta", props: { property: "og:url", content: url } },
+    { type: "meta", props: { property: "og:image", content: SITE_IMAGE } },
+    { type: "meta", props: { property: "og:image:alt", content: SITE_IMAGE_ALT } },
+    { type: "meta", props: { name: "twitter:title", content: title } },
+    { type: "meta", props: { name: "twitter:description", content: description } },
+    { type: "meta", props: { name: "twitter:image", content: SITE_IMAGE } },
+  ];
+
+  return {
+    lang: "en-US",
+    title,
+    elements: new Set(elements),
+  };
+}
+
 export function applySeo({ title, description, path }: SeoInput) {
-  const url = `${SITE_URL}${path === "/" ? "/" : path}`;
+  const url = canonicalUrl(path);
   document.title = title;
   upsertMeta("name", "description", description);
   upsertMeta("property", "og:site_name", SITE_NAME);

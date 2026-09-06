@@ -71,11 +71,21 @@ export function CalEmbed({ calLink, namespace, prefillNotes }: CalEmbedProps) {
   const layout = useEmbedLayout(shellRef);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
     (async () => {
       const cal = await getCalApi({ namespace });
       cal("ui", { ...calUiConfig, layout });
     })();
   }, [namespace, layout]);
+
+  if (typeof window === "undefined") {
+    return (
+      <div
+        className="cal-booking-shell h-[min(480px,72vh)] w-full min-w-0 overflow-y-auto overscroll-contain lg:h-[460px]"
+        aria-hidden="true"
+      />
+    );
+  }
 
   return (
     <div
