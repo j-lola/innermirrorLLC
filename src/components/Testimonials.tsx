@@ -31,11 +31,6 @@ function TestimonialCard({ item }: { item: Testimonial }) {
           <span className="font-display text-sm font-semibold tracking-tight text-bone">{item.name}</span>
           <span className="mt-1 block text-[13px] text-bone/65">{item.context}</span>
         </cite>
-        {item.source === "google" ? (
-          <span className="mt-3 block font-display text-[10px] font-semibold uppercase tracking-[0.12em] text-bone/45">
-            Google review
-          </span>
-        ) : null}
       </footer>
     </blockquote>
   );

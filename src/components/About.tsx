@@ -52,11 +52,11 @@ export function About() {
 
           <Reveal delay={0.16} className="flex flex-col justify-center gap-7">
             <p className="text-[16.5px] leading-relaxed text-ink/70">
-              I&apos;m Dr. Jejelola Owotomo — a PhD in Public Health (Epidemiology), certified life coach, author of{" "}
+              I&apos;m Dr. Jejelola Owotomo, a PhD in Public Health (Epidemiology), certified life coach, author of{" "}
               <span className="italic">Return To Baseline: A Guide Back To Yourself</span>, and The Inner Mirror Circle.
             </p>
             <p className="text-[16.5px] leading-relaxed text-ink/70">
-              Clarity changes everything, and you don’t have to find it alone. I will partner with you as a coach and co‑pilot—supporting
+              Clarity changes everything, and you don’t have to find it alone. I will partner with you as a coach and co‑pilot supporting
               your wellness and burnout recovery through reflective, forward‑focused coaching that helps you break repeating patterns so you
               can move with confidence and live in authentic alignment.
             </p>
