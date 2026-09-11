@@ -60,11 +60,6 @@ export type SeoInput = {
   path: string;
 };
 
-type HeadElement = {
-  type: "meta" | "link";
-  props: Record<string, string>;
-};
-
 function canonicalUrl(path: string) {
   return `${SITE_URL}${path === "/" ? "/" : path}`;
 }
@@ -108,30 +103,6 @@ export function getSeoForPath(pathname: string): SeoInput {
   }
 
   return HOME_SEO;
-}
-
-export function buildPrerenderHead({ title, description, path }: SeoInput) {
-  const url = canonicalUrl(path);
-
-  const elements: HeadElement[] = [
-    { type: "meta", props: { name: "description", content: description } },
-    { type: "link", props: { rel: "canonical", href: url } },
-    { type: "meta", props: { property: "og:site_name", content: SITE_NAME } },
-    { type: "meta", props: { property: "og:title", content: title } },
-    { type: "meta", props: { property: "og:description", content: description } },
-    { type: "meta", props: { property: "og:url", content: url } },
-    { type: "meta", props: { property: "og:image", content: SITE_IMAGE } },
-    { type: "meta", props: { property: "og:image:alt", content: SITE_IMAGE_ALT } },
-    { type: "meta", props: { name: "twitter:title", content: title } },
-    { type: "meta", props: { name: "twitter:description", content: description } },
-    { type: "meta", props: { name: "twitter:image", content: SITE_IMAGE } },
-  ];
-
-  return {
-    lang: "en-US",
-    title,
-    elements: new Set(elements),
-  };
 }
 
 export function applySeo({ title, description, path }: SeoInput) {

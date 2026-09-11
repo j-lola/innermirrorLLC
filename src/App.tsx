@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter, Route, Routes, StaticRouter, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import { CirclePage } from "./pages/CirclePage";
 import { HomePage } from "./pages/HomePage";
 import { PrivacyPolicy } from "./pages/PrivacyPolicy";
@@ -17,35 +17,19 @@ function ScrollToTop() {
   return null;
 }
 
-function AppRoutes() {
-  return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/about" element={<HomePage />} />
-      <Route path="/discovery" element={<HomePage />} />
-      <Route path="/circle" element={<CirclePage />} />
-      <Route path="/privacy" element={<PrivacyPolicy />} />
-      <Route path="/terms" element={<TermsOfService />} />
-      <Route path="/disclaimer" element={<Disclaimer />} />
-    </Routes>
-  );
-}
-
-export function App({ url }: { url?: string }) {
-  if (url) {
-    return (
-      <StaticRouter location={url}>
-        <AppRoutes />
-      </StaticRouter>
-    );
-  }
-
+export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
-      <AppRoutes />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<HomePage />} />
+        <Route path="/discovery" element={<HomePage />} />
+        <Route path="/circle" element={<CirclePage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<TermsOfService />} />
+        <Route path="/disclaimer" element={<Disclaimer />} />
+      </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
