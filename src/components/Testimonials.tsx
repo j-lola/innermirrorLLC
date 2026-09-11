@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { Reveal } from "./Reveal";
 import { Container, Serif } from "./ui";
 import { GOOGLE_REVIEWS, TESTIMONIALS, type Testimonial } from "../content/testimonials";
+
+const READ_MORE_MIN_CHARS = 220;
 
 function StarRating({ rating }: { rating: number }) {
   const rounded = Math.round(Math.min(5, Math.max(0, rating)) * 2) / 2;
@@ -19,14 +22,31 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 function TestimonialCard({ item }: { item: Testimonial }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = item.quote.length > READ_MORE_MIN_CHARS;
+
   return (
     <blockquote
       className="flex w-[280px] shrink-0 flex-col rounded-[20px] border border-bone/15 bg-bone/[0.06] p-8 sm:w-[300px] md:w-[320px] md:p-9 lg:w-[340px]"
     >
-      <p className="font-serif text-[1.2rem] italic leading-snug text-bone md:text-[1.28rem]">
+      <p
+        className={`font-serif text-[1.15rem] italic leading-snug text-bone md:text-[1.2rem] ${
+          isLong && !expanded ? "line-clamp-5" : ""
+        }`}
+      >
         &ldquo;{item.quote}&rdquo;
       </p>
-      <footer className="mt-8 border-t border-bone/10 pt-6">
+      {isLong ? (
+        <button
+          type="button"
+          onClick={() => setExpanded((value) => !value)}
+          className="mt-3 self-start font-display text-[11px] font-semibold uppercase tracking-[0.12em] text-gold transition-colors hover:text-bone"
+          aria-expanded={expanded}
+        >
+          {expanded ? "Read less" : "Read more"}
+        </button>
+      ) : null}
+      <footer className="mt-6 border-t border-bone/10 pt-6">
         <cite className="not-italic">
           <span className="font-display text-sm font-semibold tracking-tight text-bone">{item.name}</span>
           <span className="mt-1 block text-[13px] text-bone/65">{item.context}</span>
